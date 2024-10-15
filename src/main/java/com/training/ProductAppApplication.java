@@ -16,9 +16,9 @@ public class ProductAppApplication {
 		System.out.println("-------------- Creattion of ApplicationContext is now complete -------------");
 		
 		ProductConsoleUI ui = springContainer.getBean(ProductConsoleUI.class); //new ProductConsoleUI();
-		ProductConsoleUI ui2 = springContainer.getBean(ProductConsoleUI.class);
+		//ProductConsoleUI ui2 = springContainer.getBean(ProductConsoleUI.class);
 		
-		System.out.println("Are they same obj? "+(ui == ui2));
+		//System.out.println("Are they same obj? "+(ui == ui2));
 		
 		ui.createProductWithUI();
 	}
