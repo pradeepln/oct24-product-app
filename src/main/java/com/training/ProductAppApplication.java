@@ -21,6 +21,8 @@ public class ProductAppApplication {
 		//System.out.println("Are they same obj? "+(ui == ui2));
 		
 		ui.createProductWithUI();
+		
+		ui.deleteProductWithUI();
 	}
 
 }

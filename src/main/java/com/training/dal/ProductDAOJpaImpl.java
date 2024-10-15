@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.training.domain.Product;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 
 @Primary
 @Transactional
@@ -33,14 +34,22 @@ public class ProductDAOJpaImpl implements ProductDAO{
 
 	@Override
 	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		//Query q = em.createQuery("select p from Product as p");
+		//return q.getResultList();
+		return
+				em.createQuery("select p from Product as p")
+				.getResultList();
 	}
 
 	@Override
 	public void deleteById(int id) {
-		Product p = em.find(Product.class, id);
-		em.remove(p);
+//		Product p = em.find(Product.class, id);
+//		em.remove(p);
+		
+		em
+			.createQuery("delete from Product p where p.id=:idParam")
+			.setParameter("idParam", id)
+			.executeUpdate();
 	}
 
 }

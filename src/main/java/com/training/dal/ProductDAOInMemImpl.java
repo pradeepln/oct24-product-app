@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.training.domain.Product;
 
-@Repository
+@Repository("secondaryDAO")
 public class ProductDAOInMemImpl implements ProductDAO {
 	
 	Map<Integer,Product> db = new HashMap<>();

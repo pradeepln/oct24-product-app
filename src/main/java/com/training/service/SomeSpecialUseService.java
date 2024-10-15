@@ -12,7 +12,7 @@ public class SomeSpecialUseService {
 
 	ProductDAO dao;
 	
-	@Qualifier("productDAOInMemImpl")
+	@Qualifier("secondaryDAO")
 	@Autowired
 	public void setDao(ProductDAO dao) {
 		System.out.println("What's getting injected into SomeSpecialUseService? --> "+dao.getClass().getName());
