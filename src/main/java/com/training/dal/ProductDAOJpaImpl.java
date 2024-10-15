@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.training.domain.Product;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
 
 @Primary
@@ -22,14 +23,17 @@ public class ProductDAOJpaImpl implements ProductDAO{
 	
 	@Override
 	public Product save(Product toBeSaved) {
+		
 		em.persist(toBeSaved);
 		return toBeSaved;
+		
 	}
 
 	@Override
 	public Product findById(int id) {
-		
-		return em.find(Product.class, id);
+		Product p = em.find(Product.class, id);
+	
+		return p;
 	}
 
 	@Override
