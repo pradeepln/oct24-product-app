@@ -2,6 +2,7 @@ package com.training.web;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,8 @@ class ProductControllerUnitTest {
 		//Act and Assert
 		mockMvc
 			.perform(MockMvcRequestBuilders.get("/products/{id}", id))
-			.andExpect(MockMvcResultMatchers.status().is(200));
+			.andExpect(MockMvcResultMatchers.status().is(200))
+			.andExpect(MockMvcResultMatchers.jsonPath("$.id", CoreMatchers.is(id)));
 		
 	}
 
