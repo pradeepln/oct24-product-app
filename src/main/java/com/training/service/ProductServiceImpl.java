@@ -12,6 +12,7 @@ import com.training.domain.Product;
 @Service
 public class ProductServiceImpl implements ProductService {
 	
+	static final int MIN_VALUE = 10_000;
 	private ProductDAO dao; // = new ProductDAOInMemImpl();
 	
 	public ProductServiceImpl() {
@@ -26,11 +27,11 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public int addProduct(Product toBeAdded) {
-		if(toBeAdded.getPrice() * toBeAdded.getQoh() >= 10000) {
+		if(toBeAdded.getPrice() * toBeAdded.getQoh() >= MIN_VALUE) {
 			Product added = dao.save(toBeAdded);
 			return added.getId();
 		}else {
-			throw new IllegalArgumentException("Product Value must be GTEQ 10k");
+			throw new IllegalArgumentException("Product Value (price * qoh) must be GTEQ 10k");
 		}
 	}
 	

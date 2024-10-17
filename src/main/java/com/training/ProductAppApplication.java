@@ -26,7 +26,7 @@ public class ProductAppApplication {
 		
 		//ui.deleteProductWithUI();
 		
-		testRepository(springContainer);
+		//testRepository(springContainer);
 	}
 
 	private static void testRepository(ApplicationContext springContainer) {
